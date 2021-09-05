@@ -4,6 +4,7 @@
     --palette-c1: rgb(32, 155, 90, 1);
     --palette-c2: #ddd;
     --palette-c3: #fff;
+    --palette-c4: rgb(12 220 110 / 1);
 
     /*custom colors*/
     --cc1: #fff;
@@ -22,7 +23,7 @@
     /*font families*/
     --ff-p: Arial;
     --ff-h1: 'Nunito', sans-serif;
-    --ff-h2: Arial;
+    --ff-h2: Arial, sans-serif;
     --ff-h3: Arial;
     --ff-h4: 'Nunito Sans', sans-serif;
     --ff-h5: Arial;
@@ -85,11 +86,51 @@ ul {list-style-type: none; margin: 0; padding: 0;}
 }
 
 .nav__list {
-    width: 100%;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    padding: 0 5vw;
+    padding: 0;
+    justify-self: flex-end;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.auth__logo {
+    margin-right: .4em;
+    margin-left: auto;
+}
+.auth__username {
+    font-size: var(--fs-h6);
+    font-weight: var(--fw-h6);
+    font-family: var(--ff-h1);
+    text-decoration: none;
+    color: black;
+    margin-left: .4em;
+    margin-right: auto;
+    padding: 0 1em;
+}
+.auth__button {
+    padding: 0 1em;
+}
+.auth__btn {
+    border: none;
+    font-size: var(--fs-h6);
+    font-weight: var(--fw-h6);
+    font-family: var(--ff-h1);
+    padding: .5em .8em;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: rgb(46 90 50 / 1);
+}
+.auth__btn:hover {
+    color: rgb(26 50 30 / 1);
+    box-shadow: 1px 0 .7em black;
+    filter: brightness(.9);
+}
+.btn_login {
+    background-color: var(--palette-c4);
+}
+.btn_logout {
+    background-color: var(--palette-c4);
 }
 
 .nav__item {
@@ -97,56 +138,11 @@ ul {list-style-type: none; margin: 0; padding: 0;}
     text-align: center;
 }
 
-.nav__item a {
-    font-size: var(--fs-h5);
-    font-weight: var(--fw-h6);
-    font-family: var(--ff-h1);
-    text-decoration: none;
-    color: black;
-}
-
-/*logo*/
-.nav__logo {
-    opacity: 0;
-}
-
 /*links*/
-.auth__logo {
-    opacity: 0;
+.auth__logo img {
+    border-radius: 50%;
+    width: 2em;
 }
-
-.nav__links > * {
-    max-width: 80px;
-}
-
-.nav__links a {
-    text-transform: uppercase;
-    color: rgb(255 255 255 / .85);
-    width: 100%;
-}
-.nav__links > .nav__item {
-    border-bottom: 3px solid rgb(32, 105, 60, 1);
-    margin: .4em 1em;
-    transition: border-color .7s ease-in-out;
-}
-.nav__links > .nav__item:hover {
-    border-bottom: 2px solid white;
-}
-
-/*auth*/
-.nav__auth a {
-    font-weight: 400;
-    font-size: var(--fs-p);
-    color: rgb(255 255 255 / .7);
-}
-.nav__auth a:hover {
-    color: rgb(255 255 255 / 1);
-}
-
-.nav__item img {
-    max-width: 3em;
-}
-
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~*/
 
@@ -272,7 +268,7 @@ ul {list-style-type: none; margin: 0; padding: 0;}
     margin: 0 .2125em;
     font-size: var(--fs-h5);
     font-weight: var(--fw-h6);
-    font-family: var(--ff-h1);
+    font-family: var(--ff-h2);
     border: none;
     border-radius: 5px;
     text-indent: 1em;

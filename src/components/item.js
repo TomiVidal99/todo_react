@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect} from "react"
+import React, {useState, useRef, useEffect} from "react";
 
 // class for the text that has been checked
 const inlineThroughClass = 't-crossed';
@@ -7,7 +7,6 @@ const Item = (props) => {
     const [isChecked, setCheckbox] = useState(props.checkbox);
     const [text, setText] = useState(props.content);
     const textReference = useRef();
-    const checkReference = useRef();
 
     //update the line through at the beggining
     useEffect( () => {
@@ -15,11 +14,11 @@ const Item = (props) => {
     }, [isChecked])
 
     //update the item if any change ocurred
-    const handle_update = () => {
+    const handle_update = (checkbox) => {
         props.updateItem({
             id: props.id,
             content: textReference.current.value,
-            checkbox: checkReference.current.checked
+            checkbox: checkbox 
         })
     }
 
@@ -32,30 +31,28 @@ const Item = (props) => {
         }
     }
 
-    const handle_checkbox_click = (flip) => {
-        const checked = flip ? !checkReference.current.checked : checkReference.current.checked;
-        setCheckbox(checked);
-        handle_update();
-        helper_set_inline_through(checked);
+    const handle_checkbox_click = () => {
+        setCheckbox(!isChecked);
+        handle_update(!isChecked);
+        helper_set_inline_through(isChecked);
     }
 
     const handle_input_change = (event) => {
         setText(event.target.value);
-        handle_update();
+        handle_update(isChecked);
     }
 
     return(
         <li 
             className="list__item"
-            onDoubleClick={() => {handle_checkbox_click(true)}}
+            onDoubleClick={handle_checkbox_click}
         >
             <input 
                 name="item-check"
                 className="item__checkbox"
                 checked={isChecked}
                 type="checkbox"
-                onChange={() => {handle_checkbox_click(false)}}
-                ref={checkReference}
+                onChange={handle_checkbox_click}
             />
             <input 
                 className="item__input"

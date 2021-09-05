@@ -1,3 +1,4 @@
+import React from 'react';
 import Item from './item';
 
 const List = ({items, removeItem, updateItem}) => {
